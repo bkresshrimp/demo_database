@@ -1,0 +1,32 @@
+networks:
+  database-net: {}
+
+volumes:
+  database-vol: {}
+
+services:
+  database:
+    image: mysql:8.0
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+      - MYSQL_ROOT_PASSWORD=1234
+      - MYSQL_USERNAME=root
+      - MYSQL_PASSWORD=1234
+      - MYSQL_DATABASE=
+    restart: unless-stopped
+    ports:
+      - 3306:3306
+    networks:
+      - database-net
+    volumes:
+      - database-vol:/var/lib/mysql
+
+  adminer:
+    image: adminer
+    environment:
+      - ADMINER_DEFAULT_SERVER=database
+    restart: always
+    networks:
+      - database-net
+    ports:
+      - 8080:8080/tcp
