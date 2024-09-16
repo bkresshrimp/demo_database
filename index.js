@@ -29,14 +29,14 @@ app.get(routeApi, (_req, res) => {
     const query = 
 		`SELECT 
         name,
-        JSON_UNQUOTE(JSON_EXTRACT(data, '$[1].value[0].logicType')) AS logicType_1,
-        JSON_UNQUOTE(JSON_EXTRACT(data, '$[1].value[0].thumbnailUrl	')) AS thumbnailUrl_1,
-        JSON_UNQUOTE(JSON_EXTRACT(data, '$[1].value[1].logicType')) AS logicType_2,      
-        JSON_UNQUOTE(JSON_EXTRACT(data, '$[1].value[1].thumbnailUrl	')) AS thumbnailUrl_2,
-        JSON_UNQUOTE(JSON_EXTRACT(data, '$[1].value[2].logicType')) AS logicType_3,
-        JSON_UNQUOTE(JSON_EXTRACT(data, '$[1].value[2].thumbnailUrl	')) AS thumbnailUrl_3,
-        JSON_UNQUOTE(JSON_EXTRACT(data, '$[1].value[3].logicType')) AS logicType_4,
-        JSON_UNQUOTE(JSON_EXTRACT(data, '$[1].value[3].thumbnailUrl	')) AS thumbnailUrl_4
+        JSON_UNQUOTE(JSON_EXTRACT(data, '$[1].value[0].logicType')) AS logicType,
+        JSON_UNQUOTE(JSON_EXTRACT(data, '$[1].value[0].thumbnailUrl	')) AS thumbnailUrl,
+        JSON_UNQUOTE(JSON_EXTRACT(data, '$[1].value[1].logicType')) AS logicType,      
+        JSON_UNQUOTE(JSON_EXTRACT(data, '$[1].value[1].thumbnailUrl	')) AS thumbnailUrl,
+        JSON_UNQUOTE(JSON_EXTRACT(data, '$[1].value[2].logicType')) AS logicType,
+        JSON_UNQUOTE(JSON_EXTRACT(data, '$[1].value[2].thumbnailUrl	')) AS thumbnailUrl,
+        JSON_UNQUOTE(JSON_EXTRACT(data, '$[1].value[3].logicType')) AS logicType,
+        JSON_UNQUOTE(JSON_EXTRACT(data, '$[1].value[3].thumbnailUrl	')) AS thumbnailUrl
         FROM components
         WHERE
         JSON_UNQUOTE(JSON_EXTRACT(data, '$[1].name')) = 'header';
